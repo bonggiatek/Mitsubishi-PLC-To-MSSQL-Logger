@@ -1,0 +1,58 @@
+{
+  "registers": [
+    {
+      "FieldName": "T1",
+      "RegisterAddress": "D3115.1",
+      "Description": "update when T1 status change",
+      "DataType": 3,
+      "Length": 1,
+      "Unit": "",
+      "Sql": {
+        "ConnectionString": "Server=192.168.3.1;Database=Traceability;User Id=EngTrace;Password=123;TrustServerCertificate=true",
+        "TableName": "dbo.t_aoi_machine_current_status",
+        "LogMode": 1,
+        "IntervalSeconds": 2,
+        "OperationType": 1,
+        "UseCustomQuery": true,
+        "CustomQuery": "UPDATE dbo.t_aoi_machine_current_status\r\nSET\r\n    T1_status =@Reg_T1,\r\n    T2_status =@Reg_T2,\r\n    T3_status= @Reg_T3\r\nWHERE machine_id = '16AS1'\r\n\r\nINSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status,status_datetime)\nVALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3,@Timestamp)",
+        "LogCondition": "Reg_T2 == '1'"
+      }
+    },
+    {
+      "FieldName": "T21231",
+      "RegisterAddress": "D3115.2",
+      "Description": "update when T2 status change",
+      "DataType": 3,
+      "Length": 1,
+      "Unit": "",
+      "Sql": {
+        "ConnectionString": "Server=192.168.3.1;Database=Traceability;User Id=EngTrace;Password=123;TrustServerCertificate=true",
+        "TableName": "dbo.t_aoi_machine_current_status",
+        "LogMode": 0,
+        "IntervalSeconds": 0,
+        "OperationType": 1,
+        "UseCustomQuery": true,
+        "CustomQuery": "UPDATE dbo.t_aoi_machine_current_status\r\nSET\r\n    T1_status = @Reg_t1,\r\n    T2_status= @Value\r\nWHERE machine_id = '16AS1'",
+        "LogCondition": ""
+      }
+    },
+    {
+      "FieldName": "T3",
+      "RegisterAddress": "D3115.3",
+      "Description": "update when T3 status change",
+      "DataType": 3,
+      "Length": 1,
+      "Unit": "",
+      "Sql": {
+        "ConnectionString": "Server=192.168.3.1;Database=Traceability;User Id=EngTrace;Password=112;TrustServerCertificate=true",
+        "TableName": "dbo.t_aoi_machine_current_status",
+        "LogMode": 0,
+        "IntervalSeconds": 0,
+        "OperationType": 1,
+        "UseCustomQuery": true,
+        "CustomQuery": "UPDATE dbo.t_aoi_machine_current_status\r\nSET\r\n    T1_status = @Reg_t1,\r\n    T2_status= @Value\r\nWHERE machine_id = '16AS1'\r\n\r\nINSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status)\nVALUES ('16AS1', @Value, @Reg_t2)",
+        "LogCondition": ""
+      }
+    }
+  ]
+}

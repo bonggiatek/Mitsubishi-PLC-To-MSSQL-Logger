@@ -1,0 +1,1571 @@
+[2026-01-08 15:47:56] [INFO] Executing SQL: SELECT OBJECT_ID(@TableName, 'U')
+[2026-01-08 15:47:56] [INFO] Parameters: TableName='dbo.t_aoi_machine_current_status'
+[2026-01-08 15:47:56] [INFO] Table 'dbo.t_aoi_machine_current_status' verified in database
+[2026-01-08 15:47:56] [INFO] Starting interval timer for T1 with 3 second interval
+[2026-01-08 15:47:56] [INFO] Initialized logger for T1 with mode Interval
+[2026-01-08 15:47:56] [INFO] Initialized 1 database loggers
+[2026-01-08 15:47:56] [INFO] Connected to PLC at 192.168.3.39:9005
+[2026-01-08 15:47:59] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T2_status)
+VALUES ('16AS1', @Reg_T1, @Reg_t2,@Reg_T3)
+[2026-01-08 15:47:59] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:47:59', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:47:59] [ERROR] SQL error for T1: The column name 't2_status' is specified more than once in the SET clause or column list of an INSERT. A column cannot be assigned more than one value in the same clause. Modify the clause to make sure that a column is updated only once. If this statement updates or inserts columns into a view, column aliasing can conceal the duplication in your code. - Exception: The column name 't2_status' is specified more than once in the SET clause or column list of an INSERT. A column cannot be assigned more than one value in the same clause. Modify the clause to make sure that a column is updated only once. If this statement updates or inserts columns into a view, column aliasing can conceal the duplication in your code.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:48:02] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T2_status)
+VALUES ('16AS1', @Reg_T1, @Reg_t2,@Reg_T3)
+[2026-01-08 15:48:02] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:48:02', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:48:02] [ERROR] SQL error for T1: The column name 't2_status' is specified more than once in the SET clause or column list of an INSERT. A column cannot be assigned more than one value in the same clause. Modify the clause to make sure that a column is updated only once. If this statement updates or inserts columns into a view, column aliasing can conceal the duplication in your code. - Exception: The column name 't2_status' is specified more than once in the SET clause or column list of an INSERT. A column cannot be assigned more than one value in the same clause. Modify the clause to make sure that a column is updated only once. If this statement updates or inserts columns into a view, column aliasing can conceal the duplication in your code.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:48:04] [INFO] Stopped logger for T1
+[2026-01-08 15:48:04] [INFO] Disconnected from PLC
+[2026-01-08 15:50:04] [INFO] Loaded 3 registers from configuration
+[2026-01-08 15:50:26] [INFO] Loaded 3 registers from configuration
+[2026-01-08 15:50:26] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 15:50:29] [INFO] Loaded 3 registers from configuration
+[2026-01-08 15:50:42] [INFO] Configuration saved to file
+[2026-01-08 15:50:42] [INFO] Loaded 3 registers from configuration
+[2026-01-08 15:50:42] [INFO] Loaded 3 registers from configuration
+[2026-01-08 15:50:42] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 15:50:42] [INFO] Configuration reloaded from file
+[2026-01-08 15:50:45] [INFO] Executing SQL: SELECT OBJECT_ID(@TableName, 'U')
+[2026-01-08 15:50:45] [INFO] Parameters: TableName='dbo.t_aoi_machine_current_status'
+[2026-01-08 15:50:45] [INFO] Table 'dbo.t_aoi_machine_current_status' verified in database
+[2026-01-08 15:50:45] [INFO] Starting interval timer for T1 with 3 second interval
+[2026-01-08 15:50:45] [INFO] Initialized logger for T1 with mode Interval
+[2026-01-08 15:50:45] [INFO] Initialized 1 database loggers
+[2026-01-08 15:50:45] [INFO] Connected to PLC at 192.168.3.39:9005
+[2026-01-08 15:50:48] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:50:48] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:50:48', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:50:48] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:50:51] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:50:51] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:50:51', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:50:51] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:50:54] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:50:54] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:50:54', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:50:54] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:50:57] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:50:57] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:50:57', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:50:57] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:00] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:51:00] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:51:00', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:51:00] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:03] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:51:03] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:51:03', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:51:03] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:06] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:51:06] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:51:06', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:51:06] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:09] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:51:09] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:51:09', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:51:09] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:12] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:51:12] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:51:12', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:51:12] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:15] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:51:15] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:51:15', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:51:15] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:18] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:51:18] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:51:18', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:51:18] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:21] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:51:21] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:51:21', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:51:21] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:24] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:51:24] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:51:24', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:51:24] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:27] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:51:27] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:51:27', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:51:27] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:30] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:51:30] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:51:30', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:51:30] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:33] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:51:33] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:51:33', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:51:33] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:36] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:51:36] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:51:36', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:51:36] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:39] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:51:39] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:51:39', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:51:39] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:42] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:51:42] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:51:42', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:51:42] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:45] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:51:45] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:51:45', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:51:45] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:48] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:51:48] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:51:48', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:51:48] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:51] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:51:51] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:51:51', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:51:51] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:54] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3)
+[2026-01-08 15:51:54] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:51:54', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:51:54] [ERROR] SQL error for T1: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated. - Exception: Cannot insert the value NULL into column 'status_datetime', table 'Traceability.dbo.t_aoi_machine_current_status_log'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at PLCDataLogger.Services.DatabaseService.InsertRegisterValueAsync(String connectionString, String tableName, RegisterMapping mapping, String value, DateTime timestamp, Dictionary`2 allRegisterValues) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\DatabaseService.cs:line 98
+[2026-01-08 15:51:55] [INFO] Stopped logger for T1
+[2026-01-08 15:51:55] [INFO] Disconnected from PLC
+[2026-01-08 15:52:16] [INFO] Loaded 3 registers from configuration
+[2026-01-08 15:52:41] [INFO] Configuration saved to file
+[2026-01-08 15:52:41] [INFO] Loaded 3 registers from configuration
+[2026-01-08 15:52:41] [INFO] Loaded 3 registers from configuration
+[2026-01-08 15:52:41] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 15:52:41] [INFO] Configuration reloaded from file
+[2026-01-08 15:52:44] [INFO] Executing SQL: SELECT OBJECT_ID(@TableName, 'U')
+[2026-01-08 15:52:44] [INFO] Parameters: TableName='dbo.t_aoi_machine_current_status'
+[2026-01-08 15:52:44] [INFO] Table 'dbo.t_aoi_machine_current_status' verified in database
+[2026-01-08 15:52:44] [INFO] Starting interval timer for T1 with 3 second interval
+[2026-01-08 15:52:44] [INFO] Initialized logger for T1 with mode Interval
+[2026-01-08 15:52:44] [INFO] Initialized 1 database loggers
+[2026-01-08 15:52:44] [INFO] Connected to PLC at 192.168.3.39:9005
+[2026-01-08 15:52:47] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status,status_datetime)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3,@Timestamp)
+[2026-01-08 15:52:47] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:52:47', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:52:47] [INFO] Updated T1 = 0 to database
+[2026-01-08 15:52:47] [INFO] Logged T1=0 (interval)
+[2026-01-08 15:52:50] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status,status_datetime)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3,@Timestamp)
+[2026-01-08 15:52:50] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:52:50', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:52:50] [INFO] Updated T1 = 0 to database
+[2026-01-08 15:52:50] [INFO] Logged T1=0 (interval)
+[2026-01-08 15:52:53] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status,status_datetime)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3,@Timestamp)
+[2026-01-08 15:52:53] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:52:53', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:52:53] [INFO] Updated T1 = 0 to database
+[2026-01-08 15:52:53] [INFO] Logged T1=0 (interval)
+[2026-01-08 15:52:56] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status,status_datetime)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3,@Timestamp)
+[2026-01-08 15:52:56] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:52:56', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:52:56] [INFO] Updated T1 = 0 to database
+[2026-01-08 15:52:56] [INFO] Logged T1=0 (interval)
+[2026-01-08 15:52:59] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status,status_datetime)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3,@Timestamp)
+[2026-01-08 15:52:59] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:52:59', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:52:59] [INFO] Updated T1 = 0 to database
+[2026-01-08 15:52:59] [INFO] Logged T1=0 (interval)
+[2026-01-08 15:53:02] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status,status_datetime)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3,@Timestamp)
+[2026-01-08 15:53:02] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:53:02', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:53:02] [INFO] Updated T1 = 0 to database
+[2026-01-08 15:53:02] [INFO] Logged T1=0 (interval)
+[2026-01-08 15:53:05] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status,status_datetime)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3,@Timestamp)
+[2026-01-08 15:53:05] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:53:05', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:53:05] [INFO] Updated T1 = 0 to database
+[2026-01-08 15:53:05] [INFO] Logged T1=0 (interval)
+[2026-01-08 15:53:08] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status,status_datetime)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3,@Timestamp)
+[2026-01-08 15:53:08] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:53:08', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:53:08] [INFO] Updated T1 = 0 to database
+[2026-01-08 15:53:08] [INFO] Logged T1=0 (interval)
+[2026-01-08 15:53:11] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status,status_datetime)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3,@Timestamp)
+[2026-01-08 15:53:11] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:53:11', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:53:11] [INFO] Updated T1 = 0 to database
+[2026-01-08 15:53:11] [INFO] Logged T1=0 (interval)
+[2026-01-08 15:53:14] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status,status_datetime)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3,@Timestamp)
+[2026-01-08 15:53:14] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:53:14', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:53:14] [INFO] Updated T1 = 0 to database
+[2026-01-08 15:53:14] [INFO] Logged T1=0 (interval)
+[2026-01-08 15:53:17] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status,status_datetime)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3,@Timestamp)
+[2026-01-08 15:53:17] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:53:17', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:53:17] [INFO] Updated T1 = 0 to database
+[2026-01-08 15:53:17] [INFO] Logged T1=0 (interval)
+[2026-01-08 15:53:17] [INFO] Loaded 3 registers from configuration
+[2026-01-08 15:53:20] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status,status_datetime)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3,@Timestamp)
+[2026-01-08 15:53:20] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:53:20', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:53:20] [INFO] Updated T1 = 0 to database
+[2026-01-08 15:53:20] [INFO] Logged T1=0 (interval)
+[2026-01-08 15:53:23] [INFO] Executing SQL: UPDATE dbo.t_aoi_machine_current_status
+SET
+    T1_status =@Reg_T1,
+    T2_status =@Reg_T2,
+    T3_status= @Reg_T3
+WHERE machine_id = '16AS1'
+
+INSERT INTO dbo.t_aoi_machine_current_status_log (machine_id, T1_status, T2_status, T3_status,status_datetime)
+VALUES ('16AS1', @Reg_T1, @Reg_T2,@Reg_T3,@Timestamp)
+[2026-01-08 15:53:23] [INFO] Parameters: FieldName='T1', RegisterAddress='D3115.1', Value='0', Timestamp='2026-01-08 15:53:23', Description='update when T1 status change', Unit='', OtherRegisters=T1=0, T2=1, T3=1
+[2026-01-08 15:53:23] [INFO] Updated T1 = 0 to database
+[2026-01-08 15:53:23] [INFO] Logged T1=0 (interval)
+[2026-01-08 15:53:25] [INFO] Configuration saved to file
+[2026-01-08 15:53:25] [INFO] Loaded 3 registers from configuration
+[2026-01-08 15:53:25] [INFO] Stopped logger for T1
+[2026-01-08 15:53:25] [INFO] Loaded 3 registers from configuration
+[2026-01-08 15:53:25] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 15:53:25] [INFO] Configuration reloaded from file
+[2026-01-08 15:53:25] [INFO] Executing SQL: SELECT OBJECT_ID(@TableName, 'U')
+[2026-01-08 15:53:25] [INFO] Parameters: TableName='dbo.t_aoi_machine_current_status'
+[2026-01-08 15:53:25] [INFO] Table 'dbo.t_aoi_machine_current_status' verified in database
+[2026-01-08 15:53:25] [INFO] Starting interval timer for T1 with 10 second interval
+[2026-01-08 15:53:25] [INFO] Initialized logger for T1 with mode Interval
+[2026-01-08 15:53:25] [INFO] Initialized 1 database loggers
+[2026-01-08 15:53:29] [INFO] Stopped logger for T1
+[2026-01-08 15:53:29] [INFO] Disconnected from PLC
+[2026-01-08 15:58:00] [INFO] Loaded 3 registers from configuration
+[2026-01-08 15:58:07] [INFO] Configuration saved to file
+[2026-01-08 15:58:07] [INFO] Loaded 3 registers from configuration
+[2026-01-08 15:58:07] [INFO] Loaded 3 registers from configuration
+[2026-01-08 15:58:07] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 15:58:07] [INFO] Configuration reloaded from file
+[2026-01-08 16:08:25] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:08:25] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:08:27] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:12:45] [INFO] Configuration saved to file
+[2026-01-08 16:12:45] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:12:45] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:12:45] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:12:45] [INFO] Configuration reloaded from file
+[2026-01-08 16:12:52] [INFO] Executing SQL: SELECT OBJECT_ID(@TableName, 'U')
+[2026-01-08 16:12:52] [INFO] Parameters: TableName='dbo.t_aoi_machine_current_status'
+[2026-01-08 16:12:52] [INFO] Table 'dbo.t_aoi_machine_current_status' verified in database
+[2026-01-08 16:12:52] [INFO] Starting interval timer for T1 with 10 second interval
+[2026-01-08 16:12:52] [INFO] Initialized logger for T1 with mode Interval
+[2026-01-08 16:12:52] [INFO] Initialized 1 database loggers
+[2026-01-08 16:12:52] [INFO] Connected to PLC at 192.168.3.39:9005
+[2026-01-08 16:12:59] [INFO] Stopped logger for T1
+[2026-01-08 16:12:59] [INFO] Disconnected from PLC
+[2026-01-08 16:13:00] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:13:10] [INFO] Configuration saved to file
+[2026-01-08 16:13:10] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:13:10] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:13:10] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:13:10] [INFO] Configuration reloaded from file
+[2026-01-08 16:13:21] [INFO] Configuration saved to file
+[2026-01-08 16:13:21] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:13:21] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:13:21] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:13:21] [INFO] Configuration reloaded from file
+[2026-01-08 16:13:50] [INFO] Executing SQL: SELECT OBJECT_ID(@TableName, 'U')
+[2026-01-08 16:13:50] [INFO] Parameters: TableName='dbo.t_aoi_machine_current_status'
+[2026-01-08 16:13:50] [INFO] Table 'dbo.t_aoi_machine_current_status' verified in database
+[2026-01-08 16:13:50] [INFO] Starting interval timer for T1 with 2 second interval
+[2026-01-08 16:13:50] [INFO] Initialized logger for T1 with mode Interval
+[2026-01-08 16:13:50] [INFO] Initialized 1 database loggers
+[2026-01-08 16:13:50] [INFO] Connected to PLC at 192.168.3.39:9005
+[2026-01-08 16:13:53] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:13:54] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:13:56] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:13:58] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:00] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:02] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:04] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:06] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:08] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:10] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:12] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:13] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:14:14] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:16] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:18] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:19] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:14:20] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:22] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:24] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:25] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:14:26] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:28] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:30] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:14:30] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:31] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:14:32] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:34] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:36] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:37] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:14:38] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:40] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:42] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:44] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:14:44] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:46] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:48] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:50] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:14:50] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:52] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:54] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:56] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:14:56] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:14:58] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:00] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:02] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:15:02] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:04] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:06] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:08] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:15:08] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:10] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:12] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:14] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:15:14] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:16] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:18] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:20] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:15:20] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:22] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:24] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:26] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:15:26] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:28] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:30] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:32] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:15:32] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:34] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:36] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:38] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:15:38] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:40] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:42] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:44] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:15:44] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:46] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:48] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:50] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:15:50] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:52] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:54] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:56] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:15:56] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:15:58] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:01] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:02] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:16:02] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:05] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:07] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:08] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:16:09] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:11] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:13] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:14] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:16:15] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:17] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:19] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:21] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:21] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:16:23] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:25] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:27] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:27] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:16:29] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:31] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:33] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:33] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:16:35] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:37] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:39] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:39] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:16:41] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:43] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:45] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:45] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:16:47] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:49] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:51] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:51] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:16:53] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:55] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:57] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:16:57] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:16:59] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:01] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:03] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:03] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:17:05] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:07] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:09] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:09] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:17:11] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:13] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:15] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:15] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:17:17] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:19] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:21] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:21] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:17:23] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:25] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:27] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:27] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:17:29] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:31] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:33] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:33] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:17:35] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:37] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:39] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:39] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:17:41] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:43] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:45] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:45] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:17:47] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:49] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:51] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:51] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:17:53] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:55] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '2''
+[2026-01-08 16:17:56] [INFO] Configuration saved to file
+[2026-01-08 16:17:56] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:17:56] [INFO] Stopped logger for T1
+[2026-01-08 16:17:56] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:17:56] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:17:56] [INFO] Configuration reloaded from file
+[2026-01-08 16:17:56] [INFO] Executing SQL: SELECT OBJECT_ID(@TableName, 'U')
+[2026-01-08 16:17:56] [INFO] Parameters: TableName='dbo.t_aoi_machine_current_status'
+[2026-01-08 16:17:56] [INFO] Table 'dbo.t_aoi_machine_current_status' verified in database
+[2026-01-08 16:17:56] [INFO] Starting interval timer for T1 with 2 second interval
+[2026-01-08 16:17:56] [INFO] Initialized logger for T1 with mode Interval
+[2026-01-08 16:17:56] [INFO] Initialized 1 database loggers
+[2026-01-08 16:17:58] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:17:58] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:17:58] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:18:00] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:02] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:04] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:18:04] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:18:04] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:06] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:08] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:10] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:10] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:18:10] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:18:12] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:14] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:16] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:16] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:18:16] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:18:18] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:20] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:22] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:22] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:18:22] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:18:24] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:26] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:28] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:28] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:18:28] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:18:30] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:32] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:34] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:34] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:18:34] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:18:36] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:38] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:40] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:40] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:18:40] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:18:42] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:44] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:46] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:46] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:18:46] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:18:48] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:50] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:52] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:52] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:18:52] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:18:54] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:56] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:58] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:18:58] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:18:58] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:19:00] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:02] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:04] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:04] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:19:04] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:19:06] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:08] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:10] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:10] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:19:10] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:19:12] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:14] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:16] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:16] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:19:16] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:19:18] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:20] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:22] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:22] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:19:22] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:19:24] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:26] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:28] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:28] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:19:28] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:19:30] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:32] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:34] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:35] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:19:35] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:19:36] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:38] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:40] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:41] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:19:41] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:19:42] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:44] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:46] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:47] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:19:47] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:19:48] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:50] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:52] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:53] [ERROR] Error while reading 1 points from PLC at D3115 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:19:53] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:19:54] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:56] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:19:58] [WARNING] Interval timer fired for T1 but _currentValue is empty
+[2026-01-08 16:21:06] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:21:06] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:21:08] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:26:49] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:26:49] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:27:39] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:27:39] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:27:41] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:29:55] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:32:17] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:32:17] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:32:19] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:33:48] [INFO] Configuration saved to file
+[2026-01-08 16:33:48] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:33:48] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:33:48] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:33:48] [INFO] Configuration reloaded from file
+[2026-01-08 16:34:08] [INFO] Configuration saved to file
+[2026-01-08 16:34:08] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:34:08] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:34:08] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:34:08] [INFO] Configuration reloaded from file
+[2026-01-08 16:34:12] [INFO] Configuration saved to file
+[2026-01-08 16:34:12] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:34:12] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:34:12] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:34:12] [INFO] Configuration reloaded from file
+[2026-01-08 16:34:21] [ERROR] Error while reading 1 points from PLC at D100 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:34:33] [ERROR] Error while reading 1 points from PLC at D100 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-08 16:34:36] [INFO] Executing SQL: SELECT OBJECT_ID(@TableName, 'U')
+[2026-01-08 16:34:36] [INFO] Parameters: TableName='dbo.t_aoi_machine_current_status'
+[2026-01-08 16:34:36] [INFO] Table 'dbo.t_aoi_machine_current_status' verified in database
+[2026-01-08 16:34:36] [INFO] Starting interval timer for T1 with 2 second interval
+[2026-01-08 16:34:36] [INFO] Initialized logger for T1 with mode Interval
+[2026-01-08 16:34:36] [INFO] Initialized 1 database loggers
+[2026-01-08 16:34:36] [INFO] Connected to PLC at 192.168.3.39:9005
+[2026-01-08 16:34:38] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:34:38] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:34:40] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:34:40] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:34:40] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:34:42] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:34:42] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:34:44] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:34:44] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:34:46] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:34:46] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:34:48] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:34:48] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:34:50] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:34:50] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:34:52] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:34:52] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:34:54] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:34:54] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:34:56] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:34:56] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:34:58] [INFO] Configuration saved to file
+[2026-01-08 16:34:58] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:34:58] [INFO] Stopped logger for T1
+[2026-01-08 16:34:58] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:34:58] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:34:58] [INFO] Configuration reloaded from file
+[2026-01-08 16:34:58] [INFO] Executing SQL: SELECT OBJECT_ID(@TableName, 'U')
+[2026-01-08 16:34:58] [INFO] Parameters: TableName='dbo.t_aoi_machine_current_status'
+[2026-01-08 16:34:58] [INFO] Table 'dbo.t_aoi_machine_current_status' verified in database
+[2026-01-08 16:34:58] [INFO] Starting interval timer for T1 with 2 second interval
+[2026-01-08 16:34:58] [INFO] Initialized logger for T1 with mode Interval
+[2026-01-08 16:34:58] [INFO] Initialized 1 database loggers
+[2026-01-08 16:35:00] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:00] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:02] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:02] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:04] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:04] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:06] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:06] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:08] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:08] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:09] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:35:10] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:10] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:12] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:12] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:14] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:14] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:16] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:16] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:16] [INFO] Configuration saved to file
+[2026-01-08 16:35:16] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:35:16] [INFO] Stopped logger for T1
+[2026-01-08 16:35:16] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:35:16] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:35:16] [INFO] Configuration reloaded from file
+[2026-01-08 16:35:16] [INFO] Executing SQL: SELECT OBJECT_ID(@TableName, 'U')
+[2026-01-08 16:35:16] [INFO] Parameters: TableName='dbo.t_aoi_machine_current_status'
+[2026-01-08 16:35:16] [INFO] Table 'dbo.t_aoi_machine_current_status' verified in database
+[2026-01-08 16:35:16] [INFO] Starting interval timer for T1 with 2 second interval
+[2026-01-08 16:35:16] [INFO] Initialized logger for T1 with mode Interval
+[2026-01-08 16:35:16] [INFO] Initialized 1 database loggers
+[2026-01-08 16:35:17] [ERROR] Error reading PLC data - Exception: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at PLCDataLogger.ViewModels.MainViewModel.ReadPLCDataAsync() in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\ViewModels\MainViewModel.cs:line 245
+[2026-01-08 16:35:18] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:18] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:20] [INFO] Stopped logger for T1
+[2026-01-08 16:35:20] [INFO] Disconnected from PLC
+[2026-01-08 16:35:21] [INFO] Executing SQL: SELECT OBJECT_ID(@TableName, 'U')
+[2026-01-08 16:35:21] [INFO] Parameters: TableName='dbo.t_aoi_machine_current_status'
+[2026-01-08 16:35:21] [INFO] Table 'dbo.t_aoi_machine_current_status' verified in database
+[2026-01-08 16:35:21] [INFO] Starting interval timer for T1 with 2 second interval
+[2026-01-08 16:35:21] [INFO] Initialized logger for T1 with mode Interval
+[2026-01-08 16:35:21] [INFO] Initialized 1 database loggers
+[2026-01-08 16:35:21] [INFO] Connected to PLC at 192.168.3.39:9005
+[2026-01-08 16:35:23] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:23] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:24] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:35:25] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:25] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:27] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:27] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:29] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:29] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:31] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:31] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:33] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:33] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:35] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:35] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:37] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:37] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:39] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:39] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:40] [INFO] Configuration saved to file
+[2026-01-08 16:35:40] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:35:40] [INFO] Stopped logger for T1
+[2026-01-08 16:35:40] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:35:40] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:35:40] [INFO] Configuration reloaded from file
+[2026-01-08 16:35:40] [INFO] Executing SQL: SELECT OBJECT_ID(@TableName, 'U')
+[2026-01-08 16:35:40] [INFO] Parameters: TableName='dbo.t_aoi_machine_current_status'
+[2026-01-08 16:35:40] [INFO] Table 'dbo.t_aoi_machine_current_status' verified in database
+[2026-01-08 16:35:40] [INFO] Starting interval timer for T1 with 2 second interval
+[2026-01-08 16:35:40] [INFO] Initialized logger for T1 with mode Interval
+[2026-01-08 16:35:40] [INFO] Initialized 1 database loggers
+[2026-01-08 16:35:42] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:42] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:44] [INFO] Configuration saved to file
+[2026-01-08 16:35:44] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:35:44] [INFO] Stopped logger for T1
+[2026-01-08 16:35:44] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:35:44] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:35:44] [INFO] Configuration reloaded from file
+[2026-01-08 16:35:44] [INFO] Executing SQL: SELECT OBJECT_ID(@TableName, 'U')
+[2026-01-08 16:35:44] [INFO] Parameters: TableName='dbo.t_aoi_machine_current_status'
+[2026-01-08 16:35:44] [INFO] Table 'dbo.t_aoi_machine_current_status' verified in database
+[2026-01-08 16:35:44] [INFO] Starting interval timer for T1 with 2 second interval
+[2026-01-08 16:35:44] [INFO] Initialized logger for T1 with mode Interval
+[2026-01-08 16:35:44] [INFO] Initialized 1 database loggers
+[2026-01-08 16:35:46] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:46] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:47] [INFO] Stopped logger for T1
+[2026-01-08 16:35:47] [INFO] Disconnected from PLC
+[2026-01-08 16:35:48] [INFO] Executing SQL: SELECT OBJECT_ID(@TableName, 'U')
+[2026-01-08 16:35:48] [INFO] Parameters: TableName='dbo.t_aoi_machine_current_status'
+[2026-01-08 16:35:48] [INFO] Table 'dbo.t_aoi_machine_current_status' verified in database
+[2026-01-08 16:35:48] [INFO] Starting interval timer for T1 with 2 second interval
+[2026-01-08 16:35:48] [INFO] Initialized logger for T1 with mode Interval
+[2026-01-08 16:35:48] [INFO] Initialized 1 database loggers
+[2026-01-08 16:35:48] [INFO] Connected to PLC at 192.168.3.39:9005
+[2026-01-08 16:35:50] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:50] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:52] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:52] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:52] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:35:54] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:54] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:56] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:56] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:35:58] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:35:58] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:36:00] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:36:00] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:36:02] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:36:02] [INFO] Skipped logging T1=0 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:36:03] [INFO] Configuration saved to file
+[2026-01-08 16:36:03] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:36:03] [INFO] Stopped logger for T1
+[2026-01-08 16:36:03] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:36:03] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:36:03] [INFO] Configuration reloaded from file
+[2026-01-08 16:36:03] [INFO] Executing SQL: SELECT OBJECT_ID(@TableName, 'U')
+[2026-01-08 16:36:03] [INFO] Parameters: TableName='dbo.t_aoi_machine_current_status'
+[2026-01-08 16:36:03] [INFO] Table 'dbo.t_aoi_machine_current_status' verified in database
+[2026-01-08 16:36:03] [INFO] Starting interval timer for T1 with 2 second interval
+[2026-01-08 16:36:03] [INFO] Initialized logger for T1 with mode Interval
+[2026-01-08 16:36:03] [INFO] Initialized 1 database loggers
+[2026-01-08 16:36:05] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:36:05] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:36:06] [INFO] Stopped logger for T1
+[2026-01-08 16:36:06] [INFO] Disconnected from PLC
+[2026-01-08 16:36:07] [INFO] Executing SQL: SELECT OBJECT_ID(@TableName, 'U')
+[2026-01-08 16:36:07] [INFO] Parameters: TableName='dbo.t_aoi_machine_current_status'
+[2026-01-08 16:36:07] [INFO] Table 'dbo.t_aoi_machine_current_status' verified in database
+[2026-01-08 16:36:07] [INFO] Starting interval timer for T1 with 2 second interval
+[2026-01-08 16:36:07] [INFO] Initialized logger for T1 with mode Interval
+[2026-01-08 16:36:07] [INFO] Initialized 1 database loggers
+[2026-01-08 16:36:07] [INFO] Connected to PLC at 192.168.3.39:9005
+[2026-01-08 16:36:09] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:36:09] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:36:11] [INFO] Stopped logger for T1
+[2026-01-08 16:36:11] [INFO] Disconnected from PLC
+[2026-01-08 16:36:13] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:36:17] [INFO] Configuration saved to file
+[2026-01-08 16:36:17] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:36:17] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:36:17] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:36:17] [INFO] Configuration reloaded from file
+[2026-01-08 16:36:19] [INFO] Executing SQL: SELECT OBJECT_ID(@TableName, 'U')
+[2026-01-08 16:36:19] [INFO] Parameters: TableName='dbo.t_aoi_machine_current_status'
+[2026-01-08 16:36:19] [INFO] Table 'dbo.t_aoi_machine_current_status' verified in database
+[2026-01-08 16:36:19] [INFO] Starting interval timer for T1 with 2 second interval
+[2026-01-08 16:36:19] [INFO] Initialized logger for T1 with mode Interval
+[2026-01-08 16:36:19] [INFO] Initialized 1 database loggers
+[2026-01-08 16:36:19] [INFO] Connected to PLC at 192.168.3.39:9005
+[2026-01-08 16:36:21] [WARNING] Register 'T2' not found in condition: 'Reg_T2 == ''''1'''''
+[2026-01-08 16:36:21] [INFO] Skipped logging T1=60 - condition not met: 'Reg_T2 == '1''
+[2026-01-08 16:36:23] [INFO] Stopped logger for T1
+[2026-01-08 16:36:23] [INFO] Disconnected from PLC
+[2026-01-08 16:36:28] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:36:36] [INFO] Configuration saved to file
+[2026-01-08 16:36:36] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:36:36] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:36:36] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:36:36] [INFO] Configuration reloaded from file
+[2026-01-08 16:36:54] [INFO] Configuration saved to file
+[2026-01-08 16:36:54] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:36:54] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:36:54] [INFO] Initialized 3 registers from configuration file
+[2026-01-08 16:36:54] [INFO] Configuration reloaded from file
+[2026-01-08 16:38:06] [INFO] Loaded 3 registers from configuration
+[2026-01-08 16:40:19] [INFO] Loaded 3 registers from configuration

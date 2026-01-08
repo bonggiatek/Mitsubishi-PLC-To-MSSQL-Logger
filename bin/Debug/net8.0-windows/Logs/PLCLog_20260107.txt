@@ -1,0 +1,7 @@
+[2026-01-07 16:56:54] [ERROR] Error while reading 1 points from PLC at D100 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-07 16:57:26] [ERROR] Error while reading 1 points from PLC at D100 - Exception: Connection to PLC timed out
+   at PLCDataLogger.Services.PLCService.ExecutePlcCommunicationAsync(Byte[] command, CancellationToken token) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 127
+   at PLCDataLogger.Services.PLCService.ReadRegistersAsync(Int32 startAddress, Int32 numberOfPoints) in C:\Users\1000332172\Desktop\dist\PLC_Datalogger\PLCDataLogger\Services\PLCService.cs:line 82
+[2026-01-07 17:02:51] [INFO] Connected to PLC at 192.168.3.39:9005
