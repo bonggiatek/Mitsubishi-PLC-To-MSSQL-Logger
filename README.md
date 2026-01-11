@@ -467,15 +467,6 @@ PLCDataLogger/
 - SQL Server authentication supported (Windows or SQL)
 - File access should be restricted in production environments
 
-## Contributing
-
-Contributions are welcome! Please follow these guidelines:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/YourFeature`)
-3. Commit your changes (`git commit -m 'Add some feature'`)
-4. Push to the branch (`git push origin feature/YourFeature`)
-5. Open a Pull Request
 
 ## License
 
@@ -490,7 +481,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Support
 
 For issues, questions, or feature requests:
-- **GitHub Issues**: [Create an issue](https://github.com/yourusername/Mitsubishi-PLC-To-MSSQL-Logger/issues)
+- **GitHub Issues**: [Create an issue](https://github.com/bonggiatek/Mitsubishi-PLC-To-MSSQL-Logger/issues)
 - **Logs**: Check `Logs/PLCLog_YYYYMMDD.txt` for detailed error information
 - **Configuration**: Review `Configurations/registers.json` for setup
 
